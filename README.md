@@ -6,8 +6,16 @@ This is the official pytorch implementation of "CAPformer: Compression-Aware Pre
 ## Installation
 
 ```
-conda create --name FourLLIE --file requirements.txt
-conda activate FourLLIE
+conda create --name CAPformer --file requirements.txt
+conda activate CAPformer
 ```
+
+## Run
+
+```
+python train_stage0.py -opt 'Your-YML-File'
+python train_stage1.py -opt 'Your-YML-File'
+```
+
 
 
