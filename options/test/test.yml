@@ -1,0 +1,45 @@
+### must be same as
+name: test_1223_latest
+suffix: ~  # add suffix to saved images
+model: ll_dataset
+distortion: sr
+scale: 1
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+gpu_ids: [1]
+ours_path: /data1/wangwei/papercode_1/AAA1103/Oursitself/results/latest_Ours.pth
+ours_model:
+    mode: SNR
+    nf: 64
+    level: 3
+    nb: 6
+    n_layers: 4
+    depth: 1
+    dim: 128
+    patch_size: 2
+    mlp_dim: 512
+    threshold: 0.003
+    heads: 8
+    dim_head: 64
+
+loss:
+    cb: True
+    ssim: False
+    color: False
+    vgg: False
+    psnr: False
+
+datasets:
+  test:  # the 1st test dataset
+    name: test
+    dataroot_GT: /data1/wangwei/papercode_1/AAA1103/Oursitself/experiments/LSRW_SNRBlock_Threshold3e-3_3e-3_Stage1_1219/models/1223/gt
+    dataroot_LQ: /data1/wangwei/papercode_1/AAA1103/Oursitself/experiments/LSRW_SNRBlock_Threshold3e-3_3e-3_Stage1_1219/models/1223/lq
+
+#### network structures
+network_G:
+  which_model_G: FourLLIE
+  nf: 16 # 32 # 64
+
+#### path
+path:
+  root: ./
+  pretrain_model_G: /data1/wangwei/papercode_1/AAA1103/Oursitself/experiments/LSRW_SNRBlock_Threshold3e-3_3e-3_Stage1_1219/models/100000_Ours.pth
